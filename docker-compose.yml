@@ -1,0 +1,16 @@
+version: "3"
+
+services:
+  php:
+    build:
+      context: docker/php
+    volumes:
+      - .:/usr/src/myapp
+    environment:
+      XDEBUG_CONFIG: idekey=PHPSTORM remote_enable=1 remote_host=192.168.1.66
+  zphp:
+    image: programster/ubuntu16.04-pthreads-7.2
+    volumes:
+      - .:/myapp
+    environment:
+      XDEBUG_CONFIG: idekey=PHPSTORM remote_enable=1 remote_host=192.168.1.66
